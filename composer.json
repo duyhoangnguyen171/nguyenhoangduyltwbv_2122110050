@@ -1,0 +1,10 @@
+{
+    "name": "nguyenhoangduy/shop-thoi-trang",
+    "description": "Xay dung website - Thay loi day",
+    "autoload": {
+        "psr-4": {
+            "Src\\":"application/"
+        }
+    },
+    "require": {}
+}
