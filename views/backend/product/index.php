@@ -63,13 +63,13 @@ $list = Product::where('status', '!=', 0)
                                  </div>
                                  <div class="function_style">
                                     <?php if ($item->status == 1) : ?>
-                                       <a class="text-success" href="index.php?option=product&cat=status*id= <?= $item->id; ?>">Hiện</a> |
-                                    <?php else : ?>
-                                       <a class="text-danger" href="index.php?option=product&cat=status*id= <?= $item->id; ?>">Ẩn</a> |
-                                    <?php endif; ?>
-                                    <a href="index.php?option=product&cat=edit&id= <?= $item->id; ?>">Chỉnh sửa</a> |
-                                    <a href="index.php?option=product&cat=show&id= <?= $item->id; ?>">Chi tiết</a> |
-                                    <a href="index.php?option=product&cat=delete&id= <?= $item->id; ?>">Xoá</a>
+                                          <a href="index.php?option=product&cat=status&id=<?= $item->id; ?>" class="btn btn-success btn-xs"><i class="fas fa-toggle-on"></i>Hiện</a>
+                                       <?php else : ?>
+                                          <a href="index.php?option=product&cat=status&id=<?= $item->id; ?>" class="btn btn-danger btn-xs"><i class="fas fa-toggle-off"></i>Ẩn</a>
+                                       <?php endif; ?>
+                                       <a href="index.php?option=product&cat=edit&id=<?= $item->id; ?>" class="btn btn-primary  btn-xs"><i class="fas fa-edit"></i>Chỉnh sửa</a>
+                                       <a href="index.php?option=product&cat=show&id=<?= $item->id; ?>" class="btn btn-info btn-xs"><i class="fas fa-eye"></i>Chi tiết</a>
+                                       <a href="index.php?option=product&cat=delete&id=<?= $item->id; ?>" class="btn btn-danger btn-xs"><i class="fas fa-trash"></i>Xoá</a>
                                  </div>
                               </td>
                               <td><?= $item->slg; ?></td>

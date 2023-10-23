@@ -2,7 +2,8 @@
 
 use App\Models\Category;
 use App\Libraries\MyClass;
-if(isset($_POST['THEM'])){
+if(isset($_POST['THEM']))
+{
     $category=new Category();
     // laays tu form
     $category->name=$_POST['name'];
@@ -38,21 +39,27 @@ if(isset($_POST['THEM'])){
     //insert to category
     $category->save();
     //chuyen huong trang index
-    if($category==null){
-        MyClass::set_flash('message',['msg'=>'Thêm thành công','type'=>'success']);
+    if($category->name==null)
+    {
+        MyClass::set_flash('message',['msg'=>'Hãy nhập giá trị cần thêm','type'=>'danger']);
+        header("location:index.php?option=category");
+       
+    }else
+    {
+    MyClass::set_flash('message',['msg'=>'Cập nhật thành công','type'=>'success']);
         header("location:index.php?option=category");
     }
-    
 }
 
-if(isset($_POST['CAPNHAT'])){
+if(isset($_POST['CAPNHAT']))
+{
     $id=$_POST['id'];
     $category=Category::find($id);
     if($category==null)
-{
+    {
     MyClass::set_flash('message',['msg'=>'lỗi trang 404','type'=>'danger']);
     header("location:index.php?option=category");
-}
+    }
     // laays tu form
     $category->name=$_POST['name'];
     $category->slug=(strlen($_POST['slug'])>0)?$_POST['slug']:MyClass::str_slug($_POST['name']);

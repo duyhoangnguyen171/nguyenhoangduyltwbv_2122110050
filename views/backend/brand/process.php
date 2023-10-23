@@ -2,7 +2,8 @@
 
 use App\Models\Brand;
 use App\Libraries\MyClass;
-if(isset($_POST['THEM'])){
+if(isset($_POST['THEM']))
+{
     $brand=new Brand();
     // laays tu form
     $brand->name=$_POST['name'];
@@ -21,32 +22,46 @@ if(isset($_POST['THEM'])){
             move_uploaded_file($brand->image=$_FILES['image']['tmp_name'], $target_dir . $fliename);
             $brand->image= $fliename;
         }
-    }
-    
-    
+    } 
     // tu sinh ra
-    $brand->created_at = date ('Y-m-d H:i:s');
+     $brand->created_at = date ('Y-m-d H:i:s');
     $brand->created_by = (isset($_SESSION['user_id'])) ? $_SESSION['user_id']:1;
     var_dump($brand);
-    // luu vao csdl
-    //insert to brand
-    $brand->save();
-    //chuyen huong trang index
-    if($brand==null){
-        MyClass::set_flash('message',['msg'=>'Thêm thành công','type'=>'success']);
+    
+   
+    
+//     // luu vao csdl
+    $brand->save();     
+//   /insert to brand
+    
+    if($brand->name==null)
+    {
+        MyClass::set_flash('message',['msg'=>'Thêm thất bại','type'=>'success']);
         header("location:index.php?option=brand");
     }
+   else{
+    MyClass::set_flash('message',['msg'=>'Thêm thành công','type'=>'success']);
+    header("location:index.php?option=brand");
+   }
+  
+  
+//     //chuyen huong trang index
+    //     if($brand==null){
+    // } 
+    // MyClass::set_flash('message',['msg'=>'Thêm thành công','type'=>'success']);
+    // header("location:index.php?option=brand");
+ }  
     
-}
+// }
 
 if(isset($_POST['CAPNHAT'])){
     $id=$_POST['id'];
     $brand=Brand::find($id);
-    if($brand==null)
-{
+    if($brand->name==null)
+    {
     MyClass::set_flash('message',['msg'=>'lỗi trang 404','type'=>'danger']);
     header("location:index.php?option=brand");
-}
+    }
     // laays tu form
     $brand->name=$_POST['name'];
     $brand->slug=(strlen($_POST['slug'])>0)?$_POST['slug']:MyClass::str_slug($_POST['name']);
@@ -82,4 +97,5 @@ if(isset($_POST['CAPNHAT'])){
     //chuyen huong trang index
     MyClass::set_flash('message',['msg'=>'Cập nhật thành công','type'=>'success']);
     header("location:index.php?option=brand");
+    
 }

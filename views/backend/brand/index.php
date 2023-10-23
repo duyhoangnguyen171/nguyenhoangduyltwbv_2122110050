@@ -37,7 +37,7 @@ $list = Brand::where('status', '!=', 0)
                   <button class="btn btn-sm btn-success" type="submit" name="THEM">
                   <i class="fa fa-save" aria-hidden="true"></i>
                   Lưu
-            </button>
+                   </button>
                </div>
             </div>
          </div>
