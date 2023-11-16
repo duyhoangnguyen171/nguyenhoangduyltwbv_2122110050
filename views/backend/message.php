@@ -11,4 +11,5 @@ use App\Libraries\MyClass;
     <span aria-hidden="true">&times;</span>
     </button>
     </div>
-<?php endif;?>
+<?php endif;
+

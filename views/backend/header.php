@@ -21,10 +21,10 @@
                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-               <a href="index.html" class="nav-link">Home</a>
+               <a href="index.php" class="nav-link">Home</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-               <a href="#" class="nav-link">Contact</a>
+               <a href="index.php?option=contact" class="nav-link">Contact</a>
             </li>
          </ul>
          <ul class="navbar-nav ml-auto">
@@ -57,7 +57,7 @@
          </ul>
       </nav>
       <aside class="main-sidebar sidebar-dark-primary elevation-4">
-         <a href="../backend/index.html" class="brand-link">
+         <a href="index.php" class="brand-link">
             <img src="../public/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
                class="brand-image img-circle elevation-3" style="opacity: .8">
             <span class="brand-text font-weight-light">QUẢN TRỊ</span>
@@ -65,11 +65,11 @@
          <div class="sidebar">
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                <div class="image">
-                  <img src="../public/images/user/<?= ($_SESSION['image'])??'image.png';?>"
-                  class="img-circle elevation-2" alt="<?= ($_SESSION['image'])??'image.png';?>">
+                  <img src="../public/images/user/<?=( $_SESSION['image'])??'image';?>" 
+                  class="img-circle elevation-2" alt="<?=( $_SESSION['image'])??'image';?>">
                </div>
                <div class="info">
-                  <a href="#" class="d-block"><?= ($_SESSION['name'])??'name';?></a>
+                  <a href="index.php" class="d-block"><?=( $_SESSION['name'])??"name" ;?></a>
                </div>
             </div>
             <nav class="mt-2">
@@ -158,8 +158,8 @@
                            <a href="export" class="nav-link">
                               <i class="far fa-circle nav-icon"></i>
                               <p>Xuất hàng</p>
-                           </a>
-                        </li> -->
+                           </a> -->
+                        </li>
                      </ul>
                   </li>
                   <li class="nav-item">
@@ -216,8 +216,8 @@
                            <a href="config" class="nav-link">
                               <i class="far fa-circle nav-icon"></i>
                               <p>Cấu hình</p>
-                           </a>
-                        </li> -->
+                           </a> -->
+                        </li>
                      </ul>
                   </li>
                   <li class="nav-header">LABELS</li>

@@ -1,109 +1,109 @@
 <?php
-
 use App\Models\Brand;
 use App\Libraries\MyClass;
-//select * from brand where status!='0' and ... orderby created_at desc...
-//status =1 --> hiện trang người dùng
-// =2 --? không hiện
-// =0 --> rác
-$id=$_REQUEST['id'];
-$brand=Brand::find($id);
-if($brand==null)
+$id= $_REQUEST['id'];
+$brand= Brand::find($id);
+
+if($brand==NULL)
 {
-   MyClass::set_flash('message',['msg'=>'lỗi trang 404','type'=>'danger']);
-    header("location:index.php?option=brand");
+   MyClass::set_flash('message',['msg'=>'Lỗi trang 404','type'=>'danger']);
+   header("location:index.php?option=brand&cat=trash");
 }
-
 ?>
-<?php require_once "../views/backend/header.php"; ?>
-<!-- CONTENT -->
 
-<div class="content-wrapper">
-   <section class="content-header">
-      <div class="container-fluid">
-         <div class="row mb-2">
-            <div class="col-sm-12">
-               <h1 class="d-inline">Chi tiết thương hiệu</h1>
+
+
+<?php require_once '../views/backend/header.php' ;?>
+
+      <!-- CONTENT -->
+  <div class="content-wrapper">
+         <section class="content-header">
+            <div class="container-fluid">
+               <div class="row mb-2">
+                  <div class="col-sm-12">
+                     <h1 class="d-inline">Chi tiết thương hiệu</h1>
+                  </div>
+               </div>
             </div>
-         </div>
-      </div>
-   </section>
-   <!-- Main content -->
-   <section class="content">
-      <div class="card">
-         <div class="card-header ">
-            <div class="row">
-   
-               <div class="col-md-12 text-right">
-                  <a href="index.php?option=brand" class="btn btn-sm btn-info">
+         </section>
+         <!-- Main content -->
+         <section class="content">
+            <div class="card">
+               <div class="card-header">
+                  <div class="row">
+                     <div class="col-md-12 text-right ">
+                     <a href="index.php?option=brand" class="btn btn-sm btn-info">
                      <i class="fa fa-arrow-left" aria-hidden="true"></i>
                      Về danh sách
-                  </a>
+                     </a>
+                     </div>
+                  </div>
+               </div>
+               <div class="card-body">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <table class="table table-bordered">
+                           <thead>
+                              <tr>
+                                 <th>Tên trường</th>
+                                 <th>giá trị</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td>ID</td>
+                                 <td><?=$brand->id?></td>
+                              </tr>
+                              <tr>
+                                 <td>Name</td>
+                                 <td><?=$brand->name?></td>
+                              </tr>
+                              <tr>
+                                 <td>slug</td>
+                                 <td><?=$brand->slug?></td>
+                              </tr>
+                              <tr>
+                                 <td>Hình ảnh</td>
+                                 <td>
+                                    <img class="img-fluid w-100" src="../public/images/brand/<?= $brand->image;?>"
+                                     alt="<?= $brand->image;?>">
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td>description</td>
+                                 <td><?=$brand->description?></td>
+                              </tr>
+                              <tr>
+                                 <td>created_at</td>
+                                 <td><?=$brand->created_at?></td>
+                              </tr>
+                              <tr>
+                                 <td>created_by</td>
+                                 <td><?=$brand->created_by?></td>
+                              </tr>
+                              <tr>
+                                 <td>updated_at</td>
+                                 <td><?=$brand->updated_at?></td>
+                              </tr>
+                              <tr>
+                              <tr>
+                                 <td>updated_by</td>
+                                 <td><?=$brand->updated_by?></td>
+                              </tr>
+                                 <td>status</td>
+                                 <td><?=$brand->status?></td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                  </div>
                </div>
             </div>
-         </div>
-         <div class="card-body">
-            <div class="row">
-               <div class="col-md-12">
-                  <table class="table table-bordered">
-                     <thead>
-                        <tr>
-                           <th>Tên trường</th>
-                           <th>Giá trị</th>
-                        </tr>
-                     </thead>
-                     <tbody>
-                        <tr>
-                           <td>ID</td>
-                           <td><?=$brand->id;?></td>
-                        </tr>
-                        <tr>
-                           <td>ID</td>
-                           <td><?=$brand->name;?></td>
-                        </tr>
-                        <tr>
-                           <td>ID</td>
-                           <td><img style="width:100px;" src="../public/images/brand/<?= $brand->image; ?>" alt="<?= $brand->image; ?>"></td>
-                        </tr>
-                        <tr>
-                           <td>ID</td>
-                           <td><?=$brand-> slug;?></td>
-                        </tr>
-                        <tr>
-                           <td>ID</td>
-                           <td><?=$brand->sort_order?></td>
-                        </tr>
-                        <tr>
-                           <td>ID</td>
-                           <td><?=$brand->description;?></td>
-                        </tr>
-                        <tr>
-                           <td>ID</td>
-                           <td><?=$brand->created_at;?></td>
-                        </tr>
-                        <tr>
-                           <td>ID</td>
-                           <td><?=$brand-> created_by ;?></td>
-                        </tr>
-                        <tr>
-                           <td>ID</td>
-                           <td><?=$brand->updated_at ;?></td>
-                        </tr>
-                        <tr>
-                           <td>ID</td>
-                           <td><?=$brand->updated_by;?></td>
-                        </tr>
-                        <tr>
-                           <td>ID</td>
-                           <td><?=$brand->status;?></td>
-                        </tr>
-                     </tbody>
-                  </table>
-               </div>
-            </div>
-         </div>
+         </section>
       </div>
-   </section>
-</div>
-<!-- END CONTENT-->
-<?php require_once "../views/backend/footer.php"; ?>
+      <!-- END CONTENT-->
+
+<?php require_once '../views/backend/footer.php' ;?>
+
+
+  
